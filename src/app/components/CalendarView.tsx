@@ -75,7 +75,7 @@ export const CalendarView = ({
       <div className="text-2xl font-bold mb-4">
         <button
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="px-4 py-2 bg-indigo-600 text-white rounded-md shadow-md"
+          className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors relative"
         >
           <p className="px-4">
             {date.toLocaleString("en-US", {
