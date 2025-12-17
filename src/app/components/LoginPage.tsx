@@ -19,12 +19,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
     <div className="h-full flex items-start justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="bg-white h-full p-8 rounded-lg shadow-lg w-full max-w-md">
         <div className="flex items-center justify-center mb-6">
-          <div className="bg-indigo-600 p-3 rounded-full">
-            <img src="/favicon.png" alt="BooklyAI Logo" className="h-8 w-auto" />
-          </div>
+            <img src="favicon.png" alt="BooklyAI Logo" className="h-15 w-auto" />
         </div>
-
-        <h1 className="text-center mb-2">BooklyAI</h1>
 
         <form onSubmit={handleSubmit} className="flex h-full space-y-4 justify-start flex-col">
             <div>
