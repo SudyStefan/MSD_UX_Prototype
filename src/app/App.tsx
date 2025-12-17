@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { LoginPage } from './components/LoginPage';
-import { CalendarView } from './components/CalendarView';
+import { Root } from './components/Root';
 import { mockEvents } from './data/mockEvents';
 import { GuideSignup, Event } from './types/event';
+
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,7 +42,7 @@ export default function App() {
   }
 
   return (
-    <CalendarView
+    <Root
       events={events}
       userEmail={userEmail}
       onLogout={handleLogout}
