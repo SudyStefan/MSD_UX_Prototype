@@ -6,20 +6,15 @@ import { Event, GuideSignup } from "../types/event";
 const localizer = momentLocalizer(moment);
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
+  "August 2025",
+  "September 2025",
+  "October 2025",
+  "November 2025",
+  "December 2025",
+  "January 2026",
+  "February 2026",
+  "March 2026"
 ];
-
 
 interface CalendarViewProps {
   events: Event[];
@@ -47,6 +42,22 @@ export const CalendarView = ({
     setDropdownOpen(!dropdownOpen);
   };
 
+  const handleNext = () => {
+    view === "month"
+      ? setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1))
+      : setDate(
+          new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7)
+        );
+  };
+
+  const handlePrev = () => {
+    view === "month"
+      ? setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1))
+      : setDate(
+          new Date(date.getFullYear(), date.getMonth(), date.getDate() - 7)
+        );
+  };
+
   const eventStyleGetter = (event: Event) => {
     const isFull = event.guidesSignedUp >= event.guidesNeeded;
     const isSignedUp = signedUpEvents.has(event.id);
@@ -71,43 +82,51 @@ export const CalendarView = ({
   };
 
   return (
-    <div className="flex-1 p-6">
-      <div className="text-2xl font-bold mb-4">
+    <div className="px-1 flex-1 pt-6">
+      <div className="flex flex-row justify-between px-1 pt-2 text-2xl font-bold mb-2">
         <button
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors relative"
+          className="w-full bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors relative"
         >
-          <p className="px-4">
-            {date.toLocaleString("en-US", {
-              month: "long",
-              year: "numeric"
-            })}
-          </p>
+          {date.toLocaleString("en-US", {
+            month: "long",
+            year: "numeric"
+          }) + " ▼"}
         </button>
 
         {dropdownOpen && (
-          <ul className="absolute top-2 bg-indigo-600 border mt-2 rounded-md shadow-lg z-10 text-white px-5 py-2">
-            <li onClick={() => handleDropdown(new Date(2025, 8, 1))}>
-              September 2026
-            </li>
-            <li onClick={() => handleDropdown(new Date(2025, 9, 1))}>
-              October 2026
-            </li>
-            <li onClick={() => handleDropdown(new Date(2025, 10, 1))}>
-              November 2026
-            </li>
-            <li onClick={() => handleDropdown(new Date(2025, 11, 1))}>
-              December 2026
-            </li>
-            <li onClick={() => handleDropdown(new Date(2026, 0, 1))}>
-              January 2027
-            </li>
+          <ul className="absolute top-6 bg-indigo-600 border rounded-md shadow-lg z-10 text-white ">
+            {months.map((month) => (
+              <li
+                key={month}
+                className="flex justify-center hover:bg-indigo-700 transition-colors"
+              >
+                <button
+                  onClick={() => handleDropdown(new Date(month))}
+                  className="justify-center align-center px-5 py-1"
+                >
+                  {month}
+                </button>
+              </li>
+            ))}
           </ul>
         )}
+
+        <div className="w-full flex align-between">
+          <button className={"min-h-8 w-full rounded-md hover:bg-cyan-300" + (view === "month" ? " bg-cyan-300" : "")} onClick={() => setView("month")}>MONTH</button>
+          <button className={"min-h-8 w-full rounded-md hover:bg-cyan-300" + (view === "week" ? " bg-cyan-300" : "")} onClick={() => setView("week")}>WEEK</button>
+        </div>
+      </div>
+      <div className="flex justify-around align-center">
+        <button className="min-h-8 w-full hover:bg-cyan-300" onClick={() => handlePrev()}>PREV</button>
+        <button className="w-full min-h-8 hover:bg-cyan-300" onClick={() => handleNext()}>NEXT</button>
       </div>
       <Calendar
         toolbar={false}
         localizer={localizer}
+        formats={{
+          timeGutterFormat: 'HH:mm'
+        }}
         events={events}
         startAccessor="start"
         endAccessor="end"
@@ -116,10 +135,11 @@ export const CalendarView = ({
         onSelectEvent={handleSelectEvent}
         eventPropGetter={eventStyleGetter}
         view={view}
-        onView={() => {}}
+        views={['month', 'week']}
+        onView={setView}
         date={date}
         onNavigate={setDate}
-        //popup
+        popup
       />
     </div>
   );

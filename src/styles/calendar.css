@@ -89,3 +89,23 @@
   background-color: #ef4444;
   height: 2px;
 }
+
+/* Hides the "all day" label in the left gutter */
+.rbc-time-header-gutter .rbc-allday-cell {
+  display: none;
+}
+
+.rbc-header {
+  text-wrap: auto;
+  padding: 4px 0px;
+}
+
+/* Hides the actual "all day" row in the header */
+.rbc-time-header-content .rbc-allday-cell {
+  display: none;
+}
+
+/* Removes the extra padding/border left behind by the hidden row */
+.rbc-time-header.rbc-overflowing {
+  border-right: none;
+}

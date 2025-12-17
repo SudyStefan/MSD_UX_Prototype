@@ -53,26 +53,26 @@ export function Root({
       </div>
 
       {/* Footer */}
-      <div className="bg-indigo-600 text-white px-10 py-4 flex items-center justify-between shadow-md">
+      <div className="bg-indigo-600 text-white px-2 p-4 flex items-center justify-between shadow-md">
         <div
           onClick={() => setRoute(Route.CALENDAR)}
-          className="flex flex-col items-center"
+          className={"flex flex-col w-full items-center hover:text-cyan-500" + (route === Route.CALENDAR ? " text-cyan-500" : "")}
         >
           <CalendarDays size={50} />
           <p>Calendar</p>
         </div>
         <div
           onClick={() => setRoute(Route.SCAN)}
-          className="flex flex-col items-center"
+          className={"flex flex-col w-full items-center hover:text-cyan-500" + (route === Route.SCAN ? " text-cyan-500" : "")}
         >
-          <ScanQrCode size={50} />
+          <ScanQrCode size={50} className={route === Route.SCAN ? " text-cyan-600" : ""} />
           <p>Scan</p>
         </div>
         <div
           onClick={() => setRoute(Route.SETTINGS)}
-          className="flex flex-col items-center"
+          className={"flex flex-col w-full items-center hover:text-cyan-500" + (route === Route.SETTINGS ? " text-cyan-500" : "")}
         >
-          <Settings size={50} />
+          <Settings size={50} className={route === Route.SETTINGS ? " text-cyan-600" : ""} />
           <p>Settings</p>
         </div>
       </div>
