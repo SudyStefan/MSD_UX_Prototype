@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LogIn } from "lucide-react";
+import logo from "./logo_notext.png";
 
 interface LoginPageProps {
   onLogin: (email: string) => void;
@@ -21,7 +22,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
       <div className="bg-white min-h-screen p-8 rounded-lg shadow-lg w-full max-w-md">
         <div className="flex items-center justify-center mb-6">
           <div className="bg-indigo-600 p-3 rounded-full">
-            <LogIn className="text-white" size={32} />
+            <img src={logo} alt="BooklyAI Logo" className="h-8 w-auto" />
           </div>
         </div>
 
@@ -29,10 +30,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm mb-1"
-            />
+            <label htmlFor="email" className="block text-sm mb-1" />
             <input
               id="email"
               type="email"
@@ -45,10 +43,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm mb-1"
-            />
+            <label htmlFor="password" className="block text-sm mb-1" />
             <input
               id="password"
               type="password"
@@ -59,13 +54,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               required
             />
           </div>
-
-          <button
-            type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors"
-          >
-            Log In
-          </button>
+          <div className="fixed bottom-50 left-0 w-full p-4 bg-white">
+            <button
+              type="submit"
+              className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors"
+            >
+              Log In
+            </button>
+          </div>
         </form>
       </div>
     </div>
