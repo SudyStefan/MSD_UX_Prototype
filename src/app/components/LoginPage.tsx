@@ -18,8 +18,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-start justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="bg-white min-h-screen p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="h-full flex items-start justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="bg-white h-full p-8 rounded-lg shadow-lg w-full max-w-md">
         <div className="flex items-center justify-center mb-6">
           <div className="bg-indigo-600 p-3 rounded-full">
             <img src={logo} alt="BooklyAI Logo" className="h-8 w-auto" />
@@ -28,40 +28,38 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
         <h1 className="text-center mb-2">BooklyAI</h1>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="email" className="block text-sm mb-1" />
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Username..."
-              required
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="flex h-full space-y-4 justify-start flex-col">
+            <div>
+              <label htmlFor="email" className="block text-sm mb-1" />
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="Username..."
+                required
+              />
 
-          <div>
-            <label htmlFor="password" className="block text-sm mb-1" />
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Password..."
-              required
-            />
-          </div>
-          <div className="fixed bottom-50 left-0 w-full p-4 bg-white">
-            <button
-              type="submit"
-              className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors"
-            >
-              Log In
-            </button>
-          </div>
+              <label htmlFor="password" className="block text-sm mb-1" />
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="Password..."
+                required
+              />
+            </div>
+            <div className="px-4 py-30 bg-white">
+              <button
+                type="submit"
+                className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors"
+              >
+                Log In
+              </button>
+            </div>
         </form>
       </div>
     </div>
