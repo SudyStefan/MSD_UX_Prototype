@@ -87,19 +87,19 @@ export const CalendarView = ({
 
         {dropdownOpen && (
           <ul className="absolute top-2 bg-indigo-600 border mt-2 rounded-md shadow-lg z-10 text-white px-5 py-2">
-            <li onClick={() => handleDropdown(new Date(2026, 8, 1))}>
+            <li onClick={() => handleDropdown(new Date(2025, 8, 1))}>
               September 2026
             </li>
-            <li onClick={() => handleDropdown(new Date(2026, 9, 1))}>
+            <li onClick={() => handleDropdown(new Date(2025, 9, 1))}>
               October 2026
             </li>
-            <li onClick={() => handleDropdown(new Date(2026, 10, 1))}>
+            <li onClick={() => handleDropdown(new Date(2025, 10, 1))}>
               November 2026
             </li>
-            <li onClick={() => handleDropdown(new Date(2026, 11, 1))}>
+            <li onClick={() => handleDropdown(new Date(2025, 11, 1))}>
               December 2026
             </li>
-            <li onClick={() => handleDropdown(new Date(2027, 0, 1))}>
+            <li onClick={() => handleDropdown(new Date(2026, 0, 1))}>
               January 2027
             </li>
           </ul>
