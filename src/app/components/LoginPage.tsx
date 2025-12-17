@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { LogIn } from "lucide-react";
-import logo from "./logo_notext.png";
 
 interface LoginPageProps {
   onLogin: (email: string) => void;
@@ -22,7 +20,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
       <div className="bg-white h-full p-8 rounded-lg shadow-lg w-full max-w-md">
         <div className="flex items-center justify-center mb-6">
           <div className="bg-indigo-600 p-3 rounded-full">
-            <img src={logo} alt="BooklyAI Logo" className="h-8 w-auto" />
+            <img src="/favicon.png" alt="BooklyAI Logo" className="h-8 w-auto" />
           </div>
         </div>
 
