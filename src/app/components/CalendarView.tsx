@@ -71,7 +71,7 @@ export const CalendarView = ({
   };
 
   return (
-    <div className="flex-1 p-6 overflow-auto">
+    <div className="flex-1 p-6">
       <div className="text-2xl font-bold mb-4">
         <button
           onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -112,14 +112,14 @@ export const CalendarView = ({
         startAccessor="start"
         endAccessor="end"
         titleAccessor="title"
-        style={{ height: "100%" , minHeight: "450px" }}
+        style={{ height: 450 }}
         onSelectEvent={handleSelectEvent}
         eventPropGetter={eventStyleGetter}
         view={view}
-        onView={setView}
+        onView={() => {}}
         date={date}
         onNavigate={setDate}
-        popup
+        //popup
       />
     </div>
   );
