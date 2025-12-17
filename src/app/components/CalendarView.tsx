@@ -5,6 +5,22 @@ import { Event, GuideSignup } from "../types/event";
 
 const localizer = momentLocalizer(moment);
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+
+
 interface CalendarViewProps {
   events: Event[];
   userEmail: string;
