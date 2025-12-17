@@ -1,5 +1,4 @@
 import { Calendar, momentLocalizer, View } from 'react-big-calendar';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { useState, useCallback } from 'react';
 import moment from 'moment';
 import { Event, GuideSignup } from '../types/event';
