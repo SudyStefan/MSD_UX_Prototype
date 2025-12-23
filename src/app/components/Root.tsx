@@ -4,6 +4,8 @@ import { Event, GuideSignup } from "../types/event";
 import { EventDetailDialog } from "./EventDetailDialog";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { CalendarView } from "./CalendarView";
+import { QRScannerPage } from "./QRScannerPage";
+import { SettingsPage } from "./SettingsPage";
 
 interface CalendarViewProps {
   events: Event[];
@@ -37,9 +39,9 @@ export function Root({
   }, []);
 
   return (
-    <div className="flex flex-col bg-white justify-between h-full">
-      {/* Content */}
-      <div>
+     <div className="flex flex-col bg-white justify-between h-full">
+      {/* Content - Flex-1 */}
+      <div className="flex-1 overflow-hidden">
         {route === Route.CALENDAR && (
           <CalendarView
             events={events}
@@ -48,32 +50,41 @@ export function Root({
             onSelectEvent={handleSelectEvent}
           />
         )}
-        {route === Route.SCAN && <></> /* ADD SCAN PAGE HERE */}
-        {route === Route.SETTINGS && <></> /* ADD SETTINGS PAGE HERE */}
+        {route === Route.SCAN && <QRScannerPage />}
+        {route === Route.SETTINGS && <SettingsPage />}
       </div>
 
       {/* Footer */}
       <div className="bg-indigo-600 text-white px-2 p-4 flex items-center justify-between shadow-md">
         <div
           onClick={() => setRoute(Route.CALENDAR)}
-          className={"flex flex-col w-full items-center hover:text-cyan-500" + (route === Route.CALENDAR ? " text-cyan-500" : "")}
+          className={
+            "flex flex-col w-full items-center hover:text-cyan-500 cursor-pointer" +
+            (route === Route.CALENDAR ? " text-cyan-500" : "")
+          }
         >
           <CalendarDays size={50} />
-          <p>Calendar</p>
+          <p className="text-xs mt-1">Calendar</p>
         </div>
         <div
           onClick={() => setRoute(Route.SCAN)}
-          className={"flex flex-col w-full items-center hover:text-cyan-500" + (route === Route.SCAN ? " text-cyan-500" : "")}
+          className={
+            "flex flex-col w-full items-center hover:text-cyan-500 cursor-pointer" +
+            (route === Route.SCAN ? " text-cyan-500" : "")
+          }
         >
-          <ScanQrCode size={50} className={route === Route.SCAN ? " text-cyan-600" : ""} />
-          <p>Scan</p>
+          <ScanQrCode size={50} className={route === Route.SCAN ? "text-cyan-600" : ""} />
+          <p className="text-xs mt-1">Scan</p>
         </div>
         <div
           onClick={() => setRoute(Route.SETTINGS)}
-          className={"flex flex-col w-full items-center hover:text-cyan-500" + (route === Route.SETTINGS ? " text-cyan-500" : "")}
+          className={
+            "flex flex-col w-full items-center hover:text-cyan-500 cursor-pointer" +
+            (route === Route.SETTINGS ? " text-cyan-500" : "")
+          }
         >
-          <Settings size={50} className={route === Route.SETTINGS ? " text-cyan-600" : ""} />
-          <p>Settings</p>
+          <Settings size={50} className={route === Route.SETTINGS ? "text-cyan-600" : ""} />
+          <p className="text-xs mt-1">Settings</p>
         </div>
       </div>
 
