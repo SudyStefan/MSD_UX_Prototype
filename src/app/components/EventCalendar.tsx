@@ -1,17 +1,16 @@
 import { Calendar, momentLocalizer, Event as CalendarEvent } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { GuideEvent } from '../types/event';
+import { Event } from '../types/event';
 
 const localizer = momentLocalizer(moment);
 
 interface EventCalendarProps {
-  events: GuideEvent[];
-  onSelectEvent: (event: GuideEvent) => void;
+  events: Event[];
+  onSelectEvent: (event: Event) => void;
 }
 
 export function EventCalendar({ events, onSelectEvent }: EventCalendarProps) {
-  // Convert GuideEvents to Calendar events
   const calendarEvents: CalendarEvent[] = events.map((event) => ({
     title: event.title,
     start: event.start,
@@ -21,7 +20,7 @@ export function EventCalendar({ events, onSelectEvent }: EventCalendarProps) {
 
   const handleSelectEvent = (calendarEvent: CalendarEvent) => {
     if (calendarEvent.resource) {
-      onSelectEvent(calendarEvent.resource as GuideEvent);
+      onSelectEvent(calendarEvent.resource as Event);
     }
   };
 
