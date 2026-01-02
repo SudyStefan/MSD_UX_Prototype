@@ -39,7 +39,7 @@ export function Root({
   }, []);
 
   return (
-     <div className="flex flex-col bg-white justify-between h-full">
+    <div className="flex flex-col bg-white justify-between h-full">
       {/* Content - Flex-1 */}
       <div className="flex-1 overflow-hidden">
         {route === Route.CALENDAR && (
@@ -73,7 +73,7 @@ export function Root({
             (route === Route.SCAN ? " text-cyan-500" : "")
           }
         >
-          <ScanQrCode size={50} className={route === Route.SCAN ? "text-cyan-600" : ""} />
+          <ScanQrCode size={50} />
           <p className="text-xs mt-1">Scan</p>
         </div>
         <div
@@ -83,7 +83,7 @@ export function Root({
             (route === Route.SETTINGS ? " text-cyan-500" : "")
           }
         >
-          <Settings size={50} className={route === Route.SETTINGS ? "text-cyan-600" : ""} />
+          <Settings size={50} />
           <p className="text-xs mt-1">Settings</p>
         </div>
       </div>
