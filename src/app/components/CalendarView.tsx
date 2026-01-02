@@ -2,6 +2,7 @@ import { Calendar, momentLocalizer, View } from "react-big-calendar";
 import { useState, useCallback } from "react";
 import moment from "moment";
 import { Event, GuideSignup } from "../types/event";
+import { ArrowLeft, ArrowRight, PlusIcon } from "lucide-react";
 
 const localizer = momentLocalizer(moment);
 
@@ -118,8 +119,8 @@ export const CalendarView = ({
         </div>
       </div>
       <div className="flex justify-around align-center">
-        <button className="min-h-8 w-full hover:bg-cyan-300" onClick={() => handlePrev()}>PREV</button>
-        <button className="w-full min-h-8 hover:bg-cyan-300" onClick={() => handleNext()}>NEXT</button>
+        <button className="w-full min-h-8 hover:bg-cyan-300 justify-items-center" onClick={() => handlePrev()}><ArrowLeft /></button>
+        <button className="w-full min-h-8 hover:bg-cyan-300 justify-items-center" onClick={() => handleNext()}><ArrowRight /></button>
       </div>
       <Calendar
         toolbar={false}
@@ -141,6 +142,7 @@ export const CalendarView = ({
         onNavigate={setDate}
         popup
       />
+      <PlusIcon className="absolute bottom-30 right-5 bg-cyan-700 hover:bg-cyan-800 transition-colors rounded-full text-white z-10" size={60} />
     </div>
   );
 };

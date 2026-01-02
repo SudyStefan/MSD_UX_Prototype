@@ -42,7 +42,7 @@ export default function App() {
       {/* 2. The Phone Frame (Bezel) */}
       <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[712px] w-[350px] shadow-2xl overflow-hidden">
         {/* 3. The "Notch" or Speaker */}
-        <div className="w-[148px] h-[18px] bg-gray-800 top-0 left-1/2 -translate-x-1/2 rounded-b-[1rem] absolute z-20"></div>
+        <div className="w-[148px] h-[18px] bg-gray-800 top-0 left-1/2 -translate-x-1/2 rounded-b-[1rem] absolute z-100"></div>
           {!isLoggedIn ? (
             <LoginPage onLogin={handleLogin} />
           ) : (

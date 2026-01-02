@@ -41,9 +41,8 @@ export function EventDetailDialog({ event, open, onClose, onSignup, isSignedUp }
 
   return (
     <Dialog.Root open={open} onOpenChange={(open) => !open && onClose()}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[85vh] overflow-auto z-50">
+        <Dialog.Overlay className="absolute inset-0 bg-black/50 z-40" />
+        <Dialog.Content className="absolute bg-white z-50 w-full h-full py-2">
           <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
             <Dialog.Title className="m-0">{event.title}</Dialog.Title>
             <Dialog.Close asChild>
@@ -70,7 +69,7 @@ export function EventDetailDialog({ event, open, onClose, onSignup, isSignedUp }
             </Tabs.List>
 
             <Tabs.Content value="details" className="p-6">
-              <div className="space-y-6">
+              <div className="space-y-6 max-">
                 <div>
                   <h3 className="mb-2">Description</h3>
                   <p className="text-gray-700">{event.description}</p>
@@ -222,7 +221,6 @@ export function EventDetailDialog({ event, open, onClose, onSignup, isSignedUp }
             </Tabs.Content>
           </Tabs.Root>
         </Dialog.Content>
-      </Dialog.Portal>
     </Dialog.Root>
   );
 }
